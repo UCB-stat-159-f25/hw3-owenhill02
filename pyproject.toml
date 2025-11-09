@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools >= 70", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ligotools"
+authors = [
+  { name="Ligo Scientific Collaboration (LSC) and Owen Hill", email="owenhill@berkeley.edu" },
+]
+description = "Ligotools Installable Package"
+readme = "README.md"
+
+requires-python = ">=3.10"
+dependencies = [
+    "tqdm",
+	"numpy",
+	"h5py",
+	"matplotlib",
+	"ipython",
+	"ipykernel",
+	"decorator",
+	"scipy"
+]
+
+license = "BSD-3-Clause"
+license-files = ["LICEN[CS]E*"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+
+keywords = ["tools"]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/UCB-stat-159-f25/hw3-owenhill02"
+
+[tool.setuptools]
+packages = ["ligotools"]
