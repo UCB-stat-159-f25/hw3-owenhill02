@@ -1,0 +1,31 @@
+Prompt 1 (Chat GPT): Error message from myst
+	"""
+	Build failed: Error: Unable to read config file /home/jovyan/hw3-owenhill02/myst.yml as YAML bad indentation of a mapping entry (4:5) 1 | # See docs at: https://mystmd.org/gu ... 2 | version: 1 3 | project: Homework 3 4 | id: 7412704b-a015-4ade-a733-ab66ea ... ---------^ 5 | title: Homework 3 6 | # description: at loadConfigYaml (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:291480:11) at loadConfig (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:291604:19) at findCurrentProjectAndLoad (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:291781:11) at _Session.reload (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:333085:11) at _Command.<anonymous> (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:333215:19) at _Command.listener2 [as _actionHandler] (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:19980:21) at /srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:20652:69 at _Command._chainOrCall (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:20563:16) at _Command._parseCommand (/srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:20652:31) at /srv/conda/envs/notebook/lib/python3.12/site-packages/mystmd_py/myst.cjs:20482:31 Node.js v20.19.5
+	"""
+Response:
+	"""
+	That error means your myst.yml file has incorrect indentation — YAML is very sensitive to spacing.
+	Let’s fix it 👇
+	❌ Problem (your file likely looks like this)
+	version: 1
+	project: Homework 3
+	  id: 7412704b-a015-4ade-a733-ab66ea
+	  title: Homework 3
+	  # description:
+	  # keywords: []
+	The problem is that project should be a mapping (a dictionary), but right now you didn’t indent it properly.
+	✅ Correct fixed version
+	version: 1
+	project:
+	  id: 7412704b-a015-4ade-a733-ab66ea
+	  title: Homework 3
+	  # description:
+	  # keywords: []
+	🧠 YAML rule of thumb
+	Use two spaces per indentation level (never tabs).
+	Keys followed by : and nested items must be indented consistently.
+	✅ After editing
+	Save the fixed file, then rerun your build:
+	myst build
+	You should no longer get the bad indentation of a mapping entry error.
+	"""
